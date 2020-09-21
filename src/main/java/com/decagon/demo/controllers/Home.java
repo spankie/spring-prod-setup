@@ -19,7 +19,6 @@ public class Home {
     var res = new ApiResponse<String>(HttpStatus.OK);
     res.setData("Hello Production ready server");
     res.setMessage("our app is working");
-    // throw new CustomException("testing exception", HttpStatus.BAD_REQUEST);
     return new ResponseEntity<>(res, res.getStatus());
   }
 }
