@@ -5,17 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import javax.validation.ConstraintViolation;
-
+// import javax.validation.ConstraintViolation;
+ 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.hibernate.validator.internal.engine.path.PathImpl;
+// import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 
+import lombok.Data;
+
 /**
  * ApiResponse
  */
+@Data
 public class ApiResponse<T> {
 
   private HttpStatus status;
@@ -88,69 +91,13 @@ public class ApiResponse<T> {
    *
    * @param cv the ConstraintViolation
    */
-  private void addValidationError(ConstraintViolation<?> cv) {
-    this.addValidationError(cv.getRootBeanClass().getSimpleName(),
-      ((PathImpl) cv.getPropertyPath()).getLeafNode().asString(), cv.getInvalidValue(), cv.getMessage());
-  }
+  // private void addValidationError(ConstraintViolation<?> cv) {
+  //   this.addValidationError(cv.getRootBeanClass().getSimpleName(),
+  //     ((PathImpl) cv.getPropertyPath()).getLeafNode().asString(), cv.getInvalidValue(), cv.getMessage());
+  // }
 
-  public void addValidationErrors(Set<ConstraintViolation<?>> constraintViolations) {
-    constraintViolations.forEach(this::addValidationError);
-  }
-
-  public HttpStatus getStatus() {
-    return status;
-  }
-
-  public void setStatus(HttpStatus status) {
-    this.status = status;
-  }
-
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public String getError() {
-    return error;
-  }
-
-  public void setError(String error) {
-    this.error = error;
-  }
-
-  public LocalDateTime getTimestamp() {
-    return timestamp;
-  }
-
-  public void setTimestamp(LocalDateTime timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public String getDebugMessage() {
-    return debugMessage;
-  }
-
-  public void setDebugMessage(String debugMessage) {
-    this.debugMessage = debugMessage;
-  }
-
-  public List<ApiSubError> getSubErrors() {
-    return subErrors;
-  }
-
-  public void setSubErrors(List<ApiSubError> subErrors) {
-    this.subErrors = subErrors;
-  }
-
-  public T getData() {
-    return data;
-  }
-
-  public void setData(T data) {
-    this.data = data;
-  }
+  // public void addValidationErrors(Set<ConstraintViolation<?>> constraintViolations) {
+  //   constraintViolations.forEach(this::addValidationError);
+  // }
 
 }
