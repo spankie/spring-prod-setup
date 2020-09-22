@@ -12,3 +12,12 @@ logs:
 
 test:
 	./mvnw test -Dspring.profiles.active=test
+
+build-dep:
+	docker build . -t demo2sq5-dep -f ./Dockerfile-dep
+
+build:
+	docker build . -t demo2sq5 -f ./Dockerfile-mini
+
+run:
+	docker run -it demo2sq5

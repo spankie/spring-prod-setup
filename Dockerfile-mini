@@ -1,0 +1,11 @@
+FROM adoptopenjdk/openjdk11:jdk-11.0.8_10-alpine-slim
+
+RUN mkdir /app
+
+WORKDIR /app
+
+ENV DB_HOST=35.225.149.110
+
+COPY target/demo-0.0.1-SNAPSHOT.jar /app
+
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "/app/demo-0.0.1-SNAPSHOT.jar"]
