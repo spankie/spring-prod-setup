@@ -18,7 +18,8 @@ public class Home {
   public ResponseEntity<ApiResponse<String>> home() {
     var res = new ApiResponse<String>(HttpStatus.OK);
     res.setData("Hello Production ready server");
-    res.setMessage("our app is working");
+    var message = "our app is working, and we have devtool running as well";
+    res.setMessage(message);
     return new ResponseEntity<>(res, res.getStatus());
   }
 }
