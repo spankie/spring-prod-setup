@@ -33,7 +33,7 @@ jobs:
       run: |
         mvn -B package --file pom.xml -Dspring.profiles.active=test
         mkdir staging
-        cp target/*.war staging
+        cp target/*.jar staging
     - uses: actions/upload-artifact@v2
       with:
         name: Package
